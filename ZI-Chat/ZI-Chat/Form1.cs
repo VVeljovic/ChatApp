@@ -18,12 +18,12 @@ namespace ZI_Chat
        
         private static Enigma enigma;
         private static int pid = Process.GetCurrentProcess().Id;
-       
+        private static CFB cfb;
         public Form1()
         {
             InitializeComponent();
             enigma = new Enigma();
-           
+            cfb = new CFB();
             enigma.generateRotors(3);
             enigma.generateRotors(323);
             enigma.connect(2);
@@ -72,7 +72,11 @@ namespace ZI_Chat
                         if (!string.Equals(pid.ToString(), owner, StringComparison.OrdinalIgnoreCase))
                         {
                             direction = 1;
-                            string text = enigma.EncryptMessage(encryptedMessage, 1);
+                            string text = "";
+                            if (buttonEnigma.Checked)
+                               text= enigma.EncryptMessage(encryptedMessage, 1);
+                            else if (buttonXXTEA.Checked)
+                                text = cfb.decrypt(encryptedMessage);
                             if (switchOption.Checked)
                                 AddMessage(encryptedMessage,direction);
                             AddMessage(text,direction);
@@ -153,7 +157,13 @@ namespace ZI_Chat
                     {
                         try
                         {
-                           string crypted= enigma.EncryptMessage(txtMessage.Text,0);
+                            string crypted = "";
+                            if (buttonEnigma.Checked)
+                               crypted= enigma.EncryptMessage(txtMessage.Text, 0);
+                            else if (buttonXXTEA.Checked)
+                            {
+                               crypted= cfb.encrypt(txtMessage.Text);
+                            }
                             cmd.Parameters.AddWithValue("@encrypted_message", crypted);
                             cmd.Parameters.AddWithValue("@owner", pid.ToString());
                             cmd.Parameters.AddWithValue("@offset", br2);

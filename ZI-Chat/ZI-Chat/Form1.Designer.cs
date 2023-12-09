@@ -31,15 +31,18 @@ namespace ZI_Chat
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.switchOption = new Siticone.Desktop.UI.WinForms.SiticoneToggleSwitch();
             this.siticoneImageButton2 = new Siticone.Desktop.UI.WinForms.SiticoneImageButton();
-            this.siticoneHtmlLabel2 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.btnClose = new Siticone.Desktop.UI.WinForms.SiticoneImageButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnSend = new Siticone.Desktop.UI.WinForms.SiticoneImageButton();
             this.txtMessage = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.siticoneSeparator1 = new Siticone.Desktop.UI.WinForms.SiticoneSeparator();
             this.pnlContainer = new System.Windows.Forms.Panel();
-            this.switchOption = new Siticone.Desktop.UI.WinForms.SiticoneToggleSwitch();
+            this.buttonEnigma = new System.Windows.Forms.RadioButton();
+            this.siticoneHtmlLabel1 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            this.buttonXXTEA = new System.Windows.Forms.RadioButton();
+            this.siticoneHtmlLabel2 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -47,15 +50,33 @@ namespace ZI_Chat
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(89)))), ((int)(((byte)(205)))));
+            this.panel1.Controls.Add(this.siticoneHtmlLabel2);
+            this.panel1.Controls.Add(this.buttonXXTEA);
+            this.panel1.Controls.Add(this.siticoneHtmlLabel1);
+            this.panel1.Controls.Add(this.buttonEnigma);
             this.panel1.Controls.Add(this.switchOption);
             this.panel1.Controls.Add(this.siticoneImageButton2);
-            this.panel1.Controls.Add(this.siticoneHtmlLabel2);
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(319, 100);
             this.panel1.TabIndex = 0;
+            // 
+            // switchOption
+            // 
+            this.switchOption.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.switchOption.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.switchOption.CheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.switchOption.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.switchOption.Location = new System.Drawing.Point(3, 68);
+            this.switchOption.Name = "switchOption";
+            this.switchOption.Size = new System.Drawing.Size(35, 20);
+            this.switchOption.TabIndex = 6;
+            this.switchOption.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.switchOption.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.switchOption.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.switchOption.UncheckedState.InnerColor = System.Drawing.Color.White;
             // 
             // siticoneImageButton2
             // 
@@ -72,17 +93,6 @@ namespace ZI_Chat
             this.siticoneImageButton2.PressedState.ImageSize = new System.Drawing.Size(64, 64);
             this.siticoneImageButton2.Size = new System.Drawing.Size(61, 59);
             this.siticoneImageButton2.TabIndex = 5;
-            // 
-            // siticoneHtmlLabel2
-            // 
-            this.siticoneHtmlLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.siticoneHtmlLabel2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.siticoneHtmlLabel2.Location = new System.Drawing.Point(12, 66);
-            this.siticoneHtmlLabel2.Name = "siticoneHtmlLabel2";
-            this.siticoneHtmlLabel2.Size = new System.Drawing.Size(50, 23);
-            this.siticoneHtmlLabel2.TabIndex = 4;
-            this.siticoneHtmlLabel2.Text = "Online";
             // 
             // btnClose
             // 
@@ -150,7 +160,6 @@ namespace ZI_Chat
             this.txtMessage.Size = new System.Drawing.Size(244, 73);
             this.txtMessage.Style = Siticone.Desktop.UI.WinForms.Enums.TextBoxStyle.Material;
             this.txtMessage.TabIndex = 1;
-          
             // 
             // siticoneSeparator1
             // 
@@ -170,20 +179,47 @@ namespace ZI_Chat
             this.pnlContainer.Size = new System.Drawing.Size(319, 274);
             this.pnlContainer.TabIndex = 2;
             // 
-            // switchOption
+            // buttonEnigma
             // 
-            this.switchOption.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.switchOption.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.switchOption.CheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.switchOption.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.switchOption.Location = new System.Drawing.Point(70, 69);
-            this.switchOption.Name = "switchOption";
-            this.switchOption.Size = new System.Drawing.Size(35, 20);
-            this.switchOption.TabIndex = 6;
-            this.switchOption.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.switchOption.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.switchOption.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.switchOption.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.buttonEnigma.AutoSize = true;
+            this.buttonEnigma.Checked = true;
+            this.buttonEnigma.Location = new System.Drawing.Point(70, 9);
+            this.buttonEnigma.Name = "buttonEnigma";
+            this.buttonEnigma.Size = new System.Drawing.Size(14, 13);
+            this.buttonEnigma.TabIndex = 7;
+            this.buttonEnigma.TabStop = true;
+            this.buttonEnigma.UseVisualStyleBackColor = true;
+            // 
+            // siticoneHtmlLabel1
+            // 
+            this.siticoneHtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.siticoneHtmlLabel1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.siticoneHtmlLabel1.Location = new System.Drawing.Point(90, 3);
+            this.siticoneHtmlLabel1.Name = "siticoneHtmlLabel1";
+            this.siticoneHtmlLabel1.Size = new System.Drawing.Size(56, 23);
+            this.siticoneHtmlLabel1.TabIndex = 8;
+            this.siticoneHtmlLabel1.Text = "Enigma";
+            // 
+            // buttonXXTEA
+            // 
+            this.buttonXXTEA.AutoSize = true;
+            this.buttonXXTEA.Location = new System.Drawing.Point(70, 49);
+            this.buttonXXTEA.Name = "buttonXXTEA";
+            this.buttonXXTEA.Size = new System.Drawing.Size(14, 13);
+            this.buttonXXTEA.TabIndex = 9;
+            this.buttonXXTEA.UseVisualStyleBackColor = true;
+            // 
+            // siticoneHtmlLabel2
+            // 
+            this.siticoneHtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.siticoneHtmlLabel2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.siticoneHtmlLabel2.Location = new System.Drawing.Point(90, 39);
+            this.siticoneHtmlLabel2.Name = "siticoneHtmlLabel2";
+            this.siticoneHtmlLabel2.Size = new System.Drawing.Size(51, 23);
+            this.siticoneHtmlLabel2.TabIndex = 10;
+            this.siticoneHtmlLabel2.Text = "XXTEA";
             // 
             // Form1
             // 
@@ -207,7 +243,6 @@ namespace ZI_Chat
 
         private System.Windows.Forms.Panel panel1;
         private Siticone.Desktop.UI.WinForms.SiticoneImageButton btnClose;
-        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel2;
         private System.Windows.Forms.Panel panel2;
         private Siticone.Desktop.UI.WinForms.SiticoneSeparator siticoneSeparator1;
         private System.Windows.Forms.Panel pnlContainer;
@@ -215,6 +250,10 @@ namespace ZI_Chat
         private Siticone.Desktop.UI.WinForms.SiticoneImageButton siticoneImageButton2;
         private Siticone.Desktop.UI.WinForms.SiticoneImageButton btnSend;
         private Siticone.Desktop.UI.WinForms.SiticoneToggleSwitch switchOption;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel2;
+        private System.Windows.Forms.RadioButton buttonXXTEA;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel1;
+        private System.Windows.Forms.RadioButton buttonEnigma;
     }
 }
 
