@@ -8,11 +8,17 @@ namespace ZI_Chat
 {
     class CFB
     {
-        private static uint[] key = { 0x11223344, 0x22334455, 0x33445566, 0x44556677 };
-        private static uint[] iv = { 0x11223344, 0x22334455 };
+        private static uint[] key;
+        private static uint[] iv;
         public CFB()
         {
-
+            key = generateRandomUintArray(4);
+            iv = generateRandomUintArray(2);
+            Console.WriteLine("kljucevi");
+            foreach (uint k in key)
+            {
+                Console.WriteLine(k);
+            }
         }
         public string encrypt(string plainText)
         {
@@ -138,7 +144,19 @@ namespace ZI_Chat
             Console.WriteLine("Dešifrovan tekst: " + decryptedText);
             return decryptedText;
         }
-
+        private uint[] generateRandomUintArray(int lenght)
+        {
+            int seed = lenght * 32;
+            Random random = new Random(seed);
+            uint[] generatedArray = new uint[lenght];
+            for(int i = 0;i<lenght; i ++)
+            {
+                uint randValue = (uint)random.Next();
+                generatedArray[i] = randValue;
+            }
+            return generatedArray;
+        }
+    
     }
     
 }
