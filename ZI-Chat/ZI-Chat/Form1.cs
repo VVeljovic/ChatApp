@@ -1,5 +1,4 @@
-﻿
-using Npgsql;
+﻿using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +14,7 @@ namespace ZI_Chat
 {
     public partial class Form1 : Form
     {
-       
+
         private static Enigma enigma;
         private static int pid = Process.GetCurrentProcess().Id;
         private static CFB cfb;
@@ -35,9 +34,9 @@ namespace ZI_Chat
             });
             t1.SetApartmentState(ApartmentState.STA);
             t1.Start();
-           
+
         }
-      
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -61,25 +60,25 @@ namespace ZI_Chat
 
                 conn.Notification += (o, e) =>
                 {
-                   
+
                     var payload = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, string>>(e.Payload);
                     int direction = 0;
 
                     if (payload.TryGetValue("encrypted_message", out var encryptedMessage) &&
-                        payload.TryGetValue("owner", out var owner) &&payload.TryGetValue("offset",out var offset))
+                        payload.TryGetValue("owner", out var owner) && payload.TryGetValue("offset", out var offset))
                     {
-                       
+
                         if (!string.Equals(pid.ToString(), owner, StringComparison.OrdinalIgnoreCase))
                         {
                             direction = 1;
                             string text = "";
                             if (buttonEnigma.Checked)
-                               text= enigma.EncryptMessage(encryptedMessage, 1);
+                                text = enigma.EncryptMessage(encryptedMessage, 1,int.Parse(offset));
                             else if (buttonXXTEA.Checked)
-                                text = cfb.decrypt(encryptedMessage);
+                                text = cfb.EncryptDecrypt(encryptedMessage,1,int.Parse(offset));
                             if (switchOption.Checked)
-                                AddMessage(encryptedMessage,direction);
-                            AddMessage(text,direction);
+                                AddMessage(encryptedMessage, direction);
+                            AddMessage(text, direction);
                             string br = offset.ToString();
 
                             enigma.connect(int.Parse(br));
@@ -87,12 +86,12 @@ namespace ZI_Chat
                         else
                         {
                             direction = -1;
-                            AddMessage(txtMessage.Text,direction);
+                            AddMessage(txtMessage.Text, direction);
                             if (switchOption.Checked)
                                 AddMessage(encryptedMessage, direction);
-                            
-                           
-                            
+
+
+
                             string br = offset.ToString();
 
                             enigma.connect(int.Parse(br));
@@ -115,12 +114,12 @@ namespace ZI_Chat
 
                     if (direction == -1)
                     {
-                        
+
                         bubble = new ChatItems.Outgoing();
                     }
                     else
                     {
-                        
+
                         bubble = new ChatItems.Incomming();
                     }
 
@@ -128,7 +127,7 @@ namespace ZI_Chat
                     bubble.BringToFront();
                     bubble.Dock = DockStyle.Top;
 
-                   
+
                     dynamic dynamicBubble = bubble;
                     dynamicBubble.Message = message;
 
@@ -144,11 +143,11 @@ namespace ZI_Chat
         private void btnSend_Click(object sender, EventArgs e)
         {
             Random br = new Random();
-            int br2 = br.Next(0, 26 * 25 * 24);
+            int br2 = br.Next(1, 26 * 25 * 24);
             Thread t2 = new Thread(() =>
             {
                 var connString = "Server=localhost ; port=5432 ; user id=postgres; password=Veljko22!!!; database=ZI-Chat ; ";
-               
+
                 using (var conn2 = new NpgsqlConnection(connString))
                 {
                     conn2.Open();
@@ -159,10 +158,11 @@ namespace ZI_Chat
                         {
                             string crypted = "";
                             if (buttonEnigma.Checked)
-                               crypted= enigma.EncryptMessage(txtMessage.Text, 0);
+                                crypted = enigma.EncryptMessage(txtMessage.Text, 0,br2);
                             else if (buttonXXTEA.Checked)
                             {
-                               crypted= cfb.encrypt(txtMessage.Text);
+                                br2 = 0;
+                                crypted = cfb.EncryptDecrypt(txtMessage.Text,0,br2);
                             }
                             cmd.Parameters.AddWithValue("@encrypted_message", crypted);
                             cmd.Parameters.AddWithValue("@owner", pid.ToString());
@@ -171,14 +171,14 @@ namespace ZI_Chat
                             cmd.ExecuteNonQuery();
 
 
-                            
+
                         }
                         catch (Exception ex)
                         {
                             MessageBox.Show("Error inserting into the database: " + ex.Message);
                         }
                     }
-                   
+
 
                 }
 
@@ -187,7 +187,7 @@ namespace ZI_Chat
             t2.Start();
 
 
-          
+
         }
 
 

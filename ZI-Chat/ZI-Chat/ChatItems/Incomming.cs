@@ -31,8 +31,11 @@ namespace ZI_Chat.ChatItems
         }
         void AdjustHeight()
         {
+            label1.AutoSizeHeightOnly = true;
             siticoneImageButton2.Location = new Point(4, 3);
-            //label1.Height = Utils.GetTextHeight(label1) + 10;
+            label1.Height =  Utils.GetTextHeight(label1)+50;
+            controler.Height =  (controler.Top + label1.Height + label1.Top)+50;
+            this.Height = controler.Bottom + 10;
 
         }
         public Image Avatar { get; set; }
@@ -40,5 +43,7 @@ namespace ZI_Chat.ChatItems
         {
              
         }
+
+        
     }
 }

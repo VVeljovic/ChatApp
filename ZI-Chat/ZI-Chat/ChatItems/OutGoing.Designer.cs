@@ -52,7 +52,7 @@ namespace ZI_Chat.ChatItems
             this.siticoneCustomGradientPanel1.FillColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(114)))), ((int)(((byte)(245)))));
             this.siticoneCustomGradientPanel1.Location = new System.Drawing.Point(3, 3);
             this.siticoneCustomGradientPanel1.Name = "siticoneCustomGradientPanel1";
-            this.siticoneCustomGradientPanel1.Size = new System.Drawing.Size(240, 59);
+            this.siticoneCustomGradientPanel1.Size = new System.Drawing.Size(240, 73);
             this.siticoneCustomGradientPanel1.TabIndex = 2;
             this.siticoneCustomGradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.siticoneCustomGradientPanel1_Paint);
             // 
@@ -67,9 +67,10 @@ namespace ZI_Chat.ChatItems
             this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label1.Location = new System.Drawing.Point(20, 4);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(198, 52);
+            this.label1.Size = new System.Drawing.Size(207, 66);
             this.label1.TabIndex = 0;
             this.label1.Text = "Hello world";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // siticoneImageButton2
             // 

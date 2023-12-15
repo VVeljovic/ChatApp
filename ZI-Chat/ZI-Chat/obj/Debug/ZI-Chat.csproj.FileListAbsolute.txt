@@ -103,7 +103,6 @@ C:\Users\veljk\OneDrive\Desktop\Cetvrta godina\Zastita Informacija\Projekat\Chat
 C:\Users\veljk\OneDrive\Desktop\Cetvrta godina\Zastita Informacija\Projekat\ChatApp\ZI-Chat\ZI-Chat\bin\Debug\System.Threading.Channels.xml
 C:\Users\veljk\OneDrive\Desktop\Cetvrta godina\Zastita Informacija\Projekat\ChatApp\ZI-Chat\ZI-Chat\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\veljk\OneDrive\Desktop\Cetvrta godina\Zastita Informacija\Projekat\ChatApp\ZI-Chat\ZI-Chat\bin\Debug\System.ValueTuple.xml
-C:\Users\veljk\OneDrive\Desktop\Cetvrta godina\Zastita Informacija\Projekat\ChatApp\ZI-Chat\ZI-Chat\obj\Debug\ZI-Chat.csproj.AssemblyReference.cache
 C:\Users\veljk\OneDrive\Desktop\Cetvrta godina\Zastita Informacija\Projekat\ChatApp\ZI-Chat\ZI-Chat\obj\Debug\ZI_Chat.ChatItems.Outgoing.resources
 C:\Users\veljk\OneDrive\Desktop\Cetvrta godina\Zastita Informacija\Projekat\ChatApp\ZI-Chat\ZI-Chat\obj\Debug\ZI_Chat.ChatItems.Incomming.resources
 C:\Users\veljk\OneDrive\Desktop\Cetvrta godina\Zastita Informacija\Projekat\ChatApp\ZI-Chat\ZI-Chat\obj\Debug\ZI_Chat.Form1.resources
@@ -114,3 +113,4 @@ C:\Users\veljk\OneDrive\Desktop\Cetvrta godina\Zastita Informacija\Projekat\Chat
 C:\Users\veljk\OneDrive\Desktop\Cetvrta godina\Zastita Informacija\Projekat\ChatApp\ZI-Chat\ZI-Chat\obj\Debug\ZI-Chat.csproj.CopyComplete
 C:\Users\veljk\OneDrive\Desktop\Cetvrta godina\Zastita Informacija\Projekat\ChatApp\ZI-Chat\ZI-Chat\obj\Debug\ZI-Chat.exe
 C:\Users\veljk\OneDrive\Desktop\Cetvrta godina\Zastita Informacija\Projekat\ChatApp\ZI-Chat\ZI-Chat\obj\Debug\ZI-Chat.pdb
+C:\Users\veljk\OneDrive\Desktop\Cetvrta godina\Zastita Informacija\Projekat\ChatApp\ZI-Chat\ZI-Chat\obj\Debug\ZI-Chat.csproj.AssemblyReference.cache

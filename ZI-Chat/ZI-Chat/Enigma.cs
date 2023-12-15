@@ -97,7 +97,7 @@ namespace ZI_Chat
         public void connect(int numbers)
         {
 
-          
+            
             int offset = numbers;
                      wires12.Clear();
                      wires23.Clear();
@@ -153,9 +153,19 @@ namespace ZI_Chat
                 pair = plugboards.ContainsValue(pair) ? plugboards.FirstOrDefault(x => x.Value == let).Key : let;
             return pair;
         }
-        public string  EncryptMessage(string message,int direction )
+        public string  EncryptMessage(string message,int direction,int off )
         {
-           
+            if (off == 0)
+            {
+                if (direction == 1)
+                {
+                    byte[] bytes = Convert.FromBase64String(message);
+                    string decodedString = Encoding.UTF8.GetString(bytes);
+                    return decodedString;
+                }
+                else
+                    return message;
+            }
             int vs = 0;
             char[] characters = message.ToCharArray();
             char[] return_message = new char[message.Length];
@@ -189,5 +199,6 @@ namespace ZI_Chat
             return retVal;
 
         }
+        
     }
 }

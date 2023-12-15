@@ -10,12 +10,20 @@ namespace ZI_Chat
 {
    public static class Utils
     {
-        public static int GetTextHeight(Label lbl)
+        public static int GetTextHeight(Control control)
         {
-            using(Graphics g = lbl.CreateGraphics())
+            if (control is Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneLabel)
             {
-                SizeF size = g.MeasureString(lbl.Text, lbl.Font, 495);
-                return (int)Math.Ceiling(size.Height);
+                using (Graphics g = control.CreateGraphics())
+                {
+                    SizeF size = g.MeasureString(siticoneLabel.Text, siticoneLabel.Font, 495);
+                    return (int)Math.Ceiling(size.Height);
+                }
+            }
+            else
+            {
+                
+                return -1;
             }
         }
     }

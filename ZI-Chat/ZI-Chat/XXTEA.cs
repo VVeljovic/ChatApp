@@ -8,7 +8,18 @@ namespace ZI_Chat
 {
     public class XXTEA
     {
-        private const uint DELTA = 0x9e3779b9;
+        private static uint DELTA;
+        public XXTEA(int deltaSeed)
+        {
+            DELTA = generateDelta(deltaSeed);
+        }
+        
+        private static uint generateDelta(int num)
+        {
+            Random random = new Random(num);
+            uint randomValue = (uint)random.Next();
+            return randomValue;
+        }
         private static uint MX(uint z, uint y, uint sum, uint e, uint p, uint[] k)
         {
 

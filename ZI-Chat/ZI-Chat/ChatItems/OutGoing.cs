@@ -26,13 +26,26 @@ namespace ZI_Chat.ChatItems
             set
             {
                 label1.Text=value;
+                AdjustHeight();
             }
         }
+        void AdjustHeight()
+        {
+            label1.AutoSizeHeightOnly = true;
+            label1.Height =50+ Utils.GetTextHeight(label1);
+            siticoneCustomGradientPanel1.Height = (siticoneCustomGradientPanel1.Top + label1.Height + label1.Top) +50;
+            this.Height = siticoneCustomGradientPanel1.Bottom + 10;
 
+        }
         public Image Avatar { get; set; }
         private void siticoneCustomGradientPanel1_Paint(object sender, PaintEventArgs e)
         {
              
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
